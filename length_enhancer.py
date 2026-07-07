@@ -3,6 +3,8 @@ import random
 def enhance_length(elements, min_length=12):
 # Add one dictionary word if the original password elements are too short.
 
+    enhanced_elements = elements.copy()
+
     dictionary_by_length = {
         2: ["in", "AT", "On", "Is"],
         3: ["key", "WIN", "key", "pro"],
@@ -12,11 +14,11 @@ def enhance_length(elements, min_length=12):
         7: ["working", "StudyIn", "PassKey", "SUPPORT"]
     }
 
-    current_length = len("".join(elements))
+    current_length = len("".join(enhanced_elements))
 
     # If original password already reaches minimum length, return directly.
     if current_length >= min_length:
-        return elements
+        return enhanced_elements
 
     need_length = min_length - current_length
 
@@ -38,6 +40,6 @@ def enhance_length(elements, min_length=12):
     # Randomly select one dictionary word
     if valid_words:
         selected_word = random.choice(valid_words)
-        elements.append(selected_word)
+        enhanced_elements.append(selected_word)
 
-    return elements
+    return enhanced_elements

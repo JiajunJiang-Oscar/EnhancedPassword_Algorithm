@@ -7,14 +7,12 @@ def main():
 
     # Remove the spaces entered by the user when entering the name
     name = "".join(input("Enter your account name: ").split())
-    platform = input("Enter the name of the platform you register for: ").strip()
+    platform = input("Enter the name of the platform you register for: ").strip().upper()
     anchor = input("Enter memory anchor (e.g. the year you register in): ").strip()
 
     platform_id = generate_platform_id(platform)
     elements = [name, platform_id, anchor]
-
-    # Output test **
-    # enhanced_elements = enhance_length(elements)
+    enhanced_elements = enhance_length(elements)
 
     # print("\nUser Input (TEST DATA)")
     # print(f"Account name: {name}")
@@ -23,7 +21,7 @@ def main():
     # print(f"Memory Anchor: {anchor}")
     # print(f"Enhanced Elements: {enhanced_elements}")
 
-    password = generate_password(elements)
+    password = generate_password(enhanced_elements)
     print(f"\nGenerated Password: {password}")
 
 if __name__ == "__main__":
