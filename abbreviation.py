@@ -2,13 +2,7 @@ def generate_platform_id(platform):
 # This function is for get user input and perform simple processing
 
     # Ignore conjunctions
-    stop_words = {
-        "of",
-        "and",
-        "the",
-        "for",
-        "to"
-    }
+    stop_words = {"of", "and", "the", "for", "to"}
 
     words = platform.split()
 
