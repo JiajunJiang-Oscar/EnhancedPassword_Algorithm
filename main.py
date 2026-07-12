@@ -3,10 +3,45 @@ from length_enhancer import enhance_length
 from structure_generator import generate_password
 
 def main():
-    print("=== Password Enhancement Framework (BETA) ===")
+    print("██████╗  █████╗ ███████╗███████╗██╗    ██╗ ██████╗ ██████╗ ██████╗\n" 
+            "██╔══██╗██╔══██╗██╔════╝██╔════╝██║    ██║██╔═══██╗██╔══██╗██╔══██╗\n"
+            "██████╔╝███████║███████╗███████╗██║ █╗ ██║██║   ██║██████╔╝██║  ██║\n"
+            "██╔═══╝ ██╔══██║╚════██║╚════██║██║███╗██║██║   ██║██╔══██╗██║  ██║\n"
+            "██║     ██║  ██║███████║███████║╚███╔███╔╝╚██████╔╝██║  ██║██████╔╝\n"
+            "╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝ ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝\n"
+            "\n███████╗███╗   ██╗██╗  ██╗ █████╗ ███╗   ██╗ ██████╗███████╗\n"
+            "██╔════╝████╗  ██║██║  ██║██╔══██╗████╗  ██║██╔════╝██╔════╝\n"
+            "█████╗  ██╔██╗ ██║███████║███████║██╔██╗ ██║██║     █████╗ \n"
+            "██╔══╝  ██║╚██╗██║██╔══██║██╔══██║██║╚██╗██║██║     ██╔══╝ \n"
+            "███████╗██║ ╚████║██║  ██║██║  ██║██║ ╚████║╚██████╗███████╗\n"
+            "╚══════╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝╚══════╝\n"
+          "\n===Welcome to Password Enhancement Framework===\n"
+          )
 
+    while True:
+
+        print("MENU\n"
+              "1. Generate New Password\n"
+              "2. View Password History\n"
+              "3. Exit"
+              )
+
+        choice = input("Select: ")
+
+        if choice == "1":
+            generate_new_password()
+        elif choice == "2":
+            print("Coming soon...")
+        elif choice == "3":
+            print("Goodbye!")
+            break
+
+        else:
+            print("\n! Invalid option !\n")
+
+def generate_new_password():
     # Remove the spaces entered by the user when entering the name
-    name = "".join(input("Enter your account name: ").split())
+    name = "".join(input("\nEnter your account name: ").split())
     platform = input("Enter the name of the platform you register for: ").strip().upper()
     anchor = input("Enter memory anchor (e.g. the year you register in): ").strip()
 
@@ -14,15 +49,8 @@ def main():
     elements = [name, platform_id, anchor]
     enhanced_elements = enhance_length(elements)
 
-    # print("\nUser Input (TEST DATA)")
-    # print(f"Account name: {name}")
-    # print(f"Platform: {platform}")
-    # print(f"Platform ID (abbreviation): {platform_id}")
-    # print(f"Memory Anchor: {anchor}")
-    # print(f"Enhanced Elements: {enhanced_elements}")
-
     password = generate_password(enhanced_elements)
-    print(f"\nGenerated Password: {password}")
+    print(f"\nYour new strong password is: {password}\n")
 
 if __name__ == "__main__":
     main()
