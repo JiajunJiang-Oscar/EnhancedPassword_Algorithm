@@ -25,7 +25,6 @@ def main():
               "2. View Password History\n"
               "3. Exit"
               )
-
         choice = input("Select: ")
 
         if choice == "1":
@@ -42,7 +41,7 @@ def main():
 def generate_new_password():
     # Remove the spaces entered by the user when entering the name
     name = "".join(input("\nEnter your account name: ").split())
-    platform = input("Enter the name of the platform you register for: ").strip().upper()
+    platform = input("Enter the name of the platform you register for: ").strip()
     anchor = input("Enter memory anchor (e.g. the year you register in): ").strip()
 
     platform_id = generate_platform_id(platform)
