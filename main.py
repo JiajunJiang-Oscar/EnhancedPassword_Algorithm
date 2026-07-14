@@ -55,7 +55,11 @@ def generate_new_password():
     # Remove the spaces entered by the user when entering the name
     name = "".join(input("\n================================\nEnter The Name: ").split())
     platform = input("Enter Registered Platform Name: ").strip()
-    anchor = input("Enter Deep Impression Year ").strip()
+    while True:
+        anchor = input("Enter Deep Impression Year: ").strip()
+        if anchor.isdigit() and 2 <= len(anchor) <= 4:
+            break
+        print("Invalid input. Please enter year in digital.")
 
     platform_id = generate_platform_id(platform)
     elements = [name, platform_id, anchor]

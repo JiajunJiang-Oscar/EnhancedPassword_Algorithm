@@ -1,8 +1,6 @@
 import random
 
 def generate_platform_id(platform):
-# This function is for get user input and perform simple processing
-
     # Random mode 1 = UPPER, 2 = lower, 3 = Original
     mode = random.randint(1, 3)
 
