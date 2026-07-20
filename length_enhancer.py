@@ -22,15 +22,12 @@ def enhance_length(elements, min_length=12):
 
     need_length = min_length - current_length
 
-    # If password is too short and needs more than 7 characters,
-    # use a 7-character dictionary word.
+    # If password is too short and needs more than 7 characters, use a 7-character dictionary word.
     if need_length > 7:
         need_length = 7
 
-    # Select dictionary words with lengths between
-    # need_length and need_length + 2
+    # Select dictionary words with lengths between need_length and need_length + 2
     valid_words = []
-
     upper_length = min(need_length + 2, 7)
 
     for length in range(need_length, upper_length + 1):
