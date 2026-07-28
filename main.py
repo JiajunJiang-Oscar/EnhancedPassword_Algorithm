@@ -3,6 +3,8 @@ from length_enhancer import enhance_length
 from structure_generator import generate_password
 import sys
 
+password_history = []
+
 def main():
     print("██████╗  █████╗ ███████╗███████╗██╗    ██╗ ██████╗ ██████╗ ██████╗\n" 
             "██╔══██╗██╔══██╗██╔════╝██╔════╝██║    ██║██╔═══██╗██╔══██╗██╔══██╗\n"
@@ -34,7 +36,7 @@ def main():
         elif choice == "2":
             generate_new_password()
         elif choice == "3":
-            print("Coming soon...")
+            view_password_history()
         elif choice == "e":
             print("\nGoodbye!")
             break
@@ -64,11 +66,31 @@ def generate_new_password():
     platform_id = generate_platform_id(platform)
     elements = [name, platform_id, anchor]
     enhanced_elements = enhance_length(elements)
-
     password = generate_password(enhanced_elements)
+
+    password_history.append({
+        "platform": platform,
+        "password": password
+    })
+
     print(f"\n================================\nYour new strong password is: {password}")
+
     back_or_exit()
 
+def view_password_history():
+    print("\n================================")
+    print("GENERATED PASSWORD HISTORY")
+
+    if not password_history:
+        print("\nNo password has been generated during this session.")
+        back_or_exit()
+        return
+
+    for number, record in enumerate(password_history, start=1):
+        print(f"\n{number}. Platform: {record['platform']}")
+        print(f"   Password: {record['password']}")
+
+    back_or_exit()
 
 def back_or_exit():
 
